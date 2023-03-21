@@ -24,7 +24,7 @@ public class Bj10810 {
             int first = Integer.parseInt(stt.nextToken());
             int second = Integer.parseInt(stt.nextToken());
             int putNum = Integer.parseInt(stt.nextToken());
-            for(int j=first+1 ; j<=second ; j++){
+            for(int j=first-1 ; j<second ; j++){
                 line[j] = putNum;
             }
         }
