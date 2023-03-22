@@ -12,7 +12,16 @@ public class Bj3052 {
         for(int i=0 ; i<10 ; i++){
             line[i] = Integer.parseInt(br.readLine())%42;
         }
-
-
+        for(int i=0 ; i<line.length ; i++){
+            for(int j=i+1 ; j<line.length ; j++){
+                if(line[i]==line[j]) line[i] = -1;
+            }
+        }
+        int result = 0;
+        for(int i=0 ; i<line.length ; i++){
+            if(line[i]!=-1) result++;
+        }
+        bw.write(String.valueOf(result));
+        bw.flush();
     }
 }
