@@ -47,6 +47,8 @@ public class Calculator {
         else if (cal==2) bw.write(String.valueOf(ca.minus(num1, num2)));
         else if (cal==3) bw.write(String.valueOf(ca.multiple(num1, num2)));
         else if (cal==4) bw.write(String.valueOf(ca.divide(num1, num2)));
+        bw.write("\n");
+        bw.flush();
     }
     public static void checkForEnd() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -59,10 +61,10 @@ public class Calculator {
 }
 
 interface iCalculator {
-    abstract int plus(int x, int y);
-    abstract int minus(int x, int y);
-    abstract int multiple(int x, int y);
-    abstract double divide(double x, double y);
+    int plus(int x, int y);
+    int minus(int x, int y);
+    int multiple(int x, int y);
+    double divide(double x, double y);
 }
 
 class Calculate implements iCalculator{
@@ -70,17 +72,14 @@ class Calculate implements iCalculator{
     public int plus(int x, int y) {
         return x + y;
     }
-
     @Override
     public int minus(int x, int y) {
         return x - y;
     }
-
     @Override
     public int multiple(int x, int y) {
         return x * y;
     }
-
     @Override
     public double divide(double x, double y) {
         return x / y;
