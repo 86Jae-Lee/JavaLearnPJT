@@ -1,6 +1,8 @@
 package JavaStudy_Interface_ect;
 
 public class DeepCopyEx {
+
+
 }
 class Business implements Cloneable {
     private String company; private String work;
@@ -29,4 +31,5 @@ class PersonalInfo implements Cloneable {
         System.out.println("나이: " + age);
         bz.showBusinessInfo();
     }
+
 }
