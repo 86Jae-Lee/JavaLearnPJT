@@ -15,6 +15,7 @@ public class Bj15894 {
     }
 
     static long count(int num){
+        if(num==0) return 1;
         if(num==1) return 1;
         else {
             return line[num-1]+line[num-2];
