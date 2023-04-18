@@ -37,6 +37,9 @@ public class CT_ParkWalk {
         }
         int maxX; int maxY;
 
+        for(int i=0 ; i<routes.length ; i++){
+
+        }
 
 
 
