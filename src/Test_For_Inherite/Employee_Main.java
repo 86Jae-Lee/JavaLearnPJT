@@ -1,11 +1,15 @@
 package Test_For_Inherite;
 
+import java.text.DecimalFormat;
+
 public class Employee_Main {
     public static void main(String[] args) {
         EmployeeManager.se1.salaryAnnounce();
         EmployeeManager.se1.checkPersonalInfo();
         EmployeeManager.he1.salaryAnnounce();
         EmployeeManager.he1.checkPersonalInfo();
+        EmployeeManager.sa1.salaryAnnounce();
+        EmployeeManager.sa1.checkPersonalInfo();
     }
 }
 
@@ -14,6 +18,8 @@ class EmployeeManager {
             "22-04-01", 40, 300);
     static HourlyEmployee he1 = new HourlyEmployee("Lee Jun-Ho", "부산","010-2345-6666",
             "21-01-01", 52, 21000, "Day");
+    static SalesEmployee sa1 = new SalesEmployee("Kim Dong-il", "서울", "010-3939-3939",
+            "22-01-01", 40, 220, 1.5, 30000, 2000);
 
 }
 
@@ -38,6 +44,7 @@ class Employee {
     }
 }
 class SalariedEmployee extends Employee{
+    DecimalFormat df = new DecimalFormat("###,###");
     int monthlySalary;
     public SalariedEmployee(String name, String address, String phoneNum,
                             String joinComDate, int workHour, int monthlySalary) {
@@ -52,7 +59,8 @@ class SalariedEmployee extends Employee{
 
     @Override
     public void salaryAnnounce() {
-        System.out.println(name+"의 연봉은 "+salaryCount()+"만원 입니다.");
+        String yearlySalary = df.format(salaryCount());
+        System.out.println(name+"의 연봉은 "+yearlySalary+"만원 입니다.");
     }
 
     @Override
@@ -64,6 +72,7 @@ class SalariedEmployee extends Employee{
 
 class HourlyEmployee extends Employee {
     int hWage; double weaklySalary; String wTime;
+    DecimalFormat df = new DecimalFormat("###,###");
     public HourlyEmployee(String name, String address, String phoneNum, String joinComDate,
                           int workHour, int hWage, String wTime) {
         super(name, address, phoneNum, joinComDate, workHour);
@@ -73,6 +82,7 @@ class HourlyEmployee extends Employee {
 
     @Override
     public int salaryCount() {
+
         int sl;
         if(wTime.equals("day")&&wTime.equals("Day")){
             if (workHour == 40){
@@ -93,19 +103,16 @@ class HourlyEmployee extends Employee {
 
     @Override
     public void salaryAnnounce() {
-        int overMil; int overGrand; int underGrand;
         int wage = salaryCount();
-        overMil = wage/1000000;
-        overGrand = (wage-(overMil*1000000))/1000;
-        underGrand = wage-(overMil*1000000+overGrand*1000);
-        if()
-        System.out.println(name+"의 주급은 "+overMil+","+overGrand+","+underGrand+"원 입니다.");
+        String money = df.format(wage);
+        System.out.println(name+"의 주급은 "+money+"원 입니다.");
     }
 
     @Override
     public void checkPersonalInfo() {
         super.checkPersonalInfo();
-        System.out.println("시급제(시급 "+hWage+"원)");
+        String hourWage = df.format(hWage);
+        System.out.println("시급제(시급 "+hourWage+"원)");
     }
 }
 
