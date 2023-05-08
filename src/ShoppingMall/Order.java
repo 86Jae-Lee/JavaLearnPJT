@@ -1,24 +1,18 @@
 package ShoppingMall;
 
-import java.awt.*;
-
 public class Order {
     private int oNum;
     private String oPName;
     private String oCName;
     private int oStock;
-    private int totalNum;
-    public int getoNum() { return oNum; }
-    public void setoNum(int oNum) { this.oNum = oNum; }
-    public String getoPName() { return oPName; }
-    public void setoPName(String oPName) { this.oPName = oPName; }
-    public String getoCName() { return oCName; }
-    public void setoCName(String oCName) { this.oCName = oCName; }
-    public int getoStock() { return oStock; }
-    public void setoStock(int oStock) { this.oStock = oStock; }
-    Order() {
-
-    }
+    public int getONum() { return oNum; }
+    public void setONum(int oNum) { this.oNum = oNum; }
+    public String getOPName() { return oPName; }
+    public void setOPName(String oPName) { this.oPName = oPName; }
+    public String getOCName() { return oCName; }
+    public void setOCName(String oCName) { this.oCName = oCName; }
+    public int getOStock() { return oStock; }
+    public void setOStock(int oStock) { this.oStock = oStock; }
     Order(int oNum, String oPName, String oCName, int oStock){
         this.oNum = oNum;
         this.oPName = oPName;

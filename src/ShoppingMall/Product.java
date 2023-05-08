@@ -1,7 +1,5 @@
 package ShoppingMall;
 
-import java.awt.*;
-
 public class Product {
     private String pName;
     private int pPrice;
@@ -24,9 +22,7 @@ public class Product {
     public void setpStock(int pStock){
         this.pStock = pStock;
     }
-    Product(){
-
-    }
+    Product(){}
     Product(String pName, int pPrice, int pStock) {
         this.pName = pName;
         this.pPrice = pPrice;

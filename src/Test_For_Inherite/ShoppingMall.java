@@ -22,7 +22,10 @@ public class ShoppingMall {
 
 class Product {
     String pName; int pPrice; int pStock;
-    public Product(String pName, int pPrice, int pStock) {
+    Product() {
+        
+    }
+    Product(String pName, int pPrice, int pStock) {
         this.pName = pName;
         this.pPrice = pPrice;
         this.pStock = pStock;

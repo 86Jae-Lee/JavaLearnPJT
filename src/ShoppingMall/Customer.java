@@ -1,24 +1,18 @@
 package ShoppingMall;
 
-import java.lang.annotation.Retention;
-
 public class Customer {
     private String cName;
     private String cAddress;
     private String cPNumber;
     private String cEMail;
-    public String getcName() { return cName; }
-    public void setcName(String cName) { this.cName = cName; }
-    public String getcAddress() { return cAddress; }
-    public void setcAddress(String cAddress) { this.cAddress = cAddress; }
-    public String getcPNumber() { return cPNumber; }
-    public void setcPNumber(String cPNumber) { this.cPNumber = cPNumber; }
-    public String getcEMail() { return cEMail; }
-    public void setcEMail(String cEMail) { this.cEMail = cEMail; }
-
-    Customer(){
-
-    }
+    public String getCName() { return cName; }
+    public void setCName(String cName) { this.cName = cName; }
+    public String getCAddress() { return cAddress; }
+    public void setCAddress(String cAddress) { this.cAddress = cAddress; }
+    public String getCPNumber() { return cPNumber; }
+    public void setCPNumber(String cPNumber) { this.cPNumber = cPNumber; }
+    public String getCEMail() { return cEMail; }
+    public void setCEMail(String cEMail) { this.cEMail = cEMail; }
     Customer(String cName, String cAddress, String cPNumber, String cEMail){
         this.cName = cName;
         this.cAddress = cAddress;
