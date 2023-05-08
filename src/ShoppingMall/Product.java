@@ -30,6 +30,7 @@ public class Product {
     }
 
     public void productInfo(){
-        System.out.println("제품명: "+pName+" 제품가격: "+pPrice+" 재고: "+pStock);
+        System.out.println("제품명: "+pName+" 제품가격: "+pPrice+
+                " 재고: "+pStock);
     }
 }

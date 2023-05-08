@@ -21,6 +21,7 @@ public class Order {
     }
 
     public void orderInfo() {
-        System.out.println("주문번호: "+oNum+" 주문상품: "+oPName+" 주문자: "+oCName+" 주문수량: "+oStock);
+        System.out.println("주문번호: "+oNum+" 주문상품: "+oPName+" 주문자: "
+                +oCName+" 주문수량: "+oStock);
     }
 }

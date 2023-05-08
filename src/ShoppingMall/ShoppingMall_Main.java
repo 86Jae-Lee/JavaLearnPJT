@@ -12,12 +12,14 @@ public class ShoppingMall_Main {
     static Customer customer;
     static Order order;
 
-
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        BufferedReader brp = new BufferedReader(new FileReader("C:\\Users\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Product.txt"));
-        BufferedReader brc = new BufferedReader(new FileReader("C:\\Users\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Customer.txt"));
-        BufferedReader bro = new BufferedReader(new FileReader("C:\\Users\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Order.txt"));
+        BufferedReader brp = new BufferedReader(new FileReader("C:\\Users" +
+                "\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Product.txt"));
+        BufferedReader brc = new BufferedReader(new FileReader("C:\\Users" +
+                "\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Customer.txt"));
+        BufferedReader bro = new BufferedReader(new FileReader("C:\\Users" +
+                "\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Order.txt"));
 
         while((str = brp.readLine()) != null){
             String[] strings = str.split(" ");
@@ -30,19 +32,21 @@ public class ShoppingMall_Main {
 
         while ((str = brc.readLine()) != null){
             String[] strings = str.split(" ");
-            customer = new Customer(strings[0], strings[1], strings[2], strings[3]);
+            customer = new Customer(strings[0], strings[1], strings[2],
+                    strings[3], Integer.parseInt(String.valueOf(strings[4])));
             cus_List.add(customer);
         }
 
         while ((str = bro.readLine()) != null){
             String[] strings = str.split(" ");
-            order = new Order(Integer.parseInt(String.valueOf(strings[0])), strings[1], strings[2], Integer.parseInt(String.valueOf(strings[3])));
+            order = new Order(Integer.parseInt(String.valueOf(strings[0])), strings[1],
+                    strings[2], Integer.parseInt(String.valueOf(strings[3])));
             ord_List.add(order);
         }
         brp.close(); brc.close(); bro.close();
-        checkProduct();
+
         checkCustomer();
-        checkOrder();
+
         ShoppingCart cart = new ShoppingCart();
         for (Order a : ord_List) {
             for (Product b : pro_List) {
