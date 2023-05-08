@@ -1,17 +1,22 @@
 package Test_For_Inherite;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class ShoppingMall {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Product.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\pc\\Desktop\\Study\\Coding\\JavaStudy\\readFile\\ShoppingMall_Customer.txt"));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer stt;
         String str;
+        ArrayList<String> customerList = new ArrayList<>();
         while((str = br.readLine()) != null){
-
+            customerList.add(str);
         }
-
+        bw.write(Arrays.toString(new ArrayList[]{customerList}));
+        bw.flush();
     }
 }
 
