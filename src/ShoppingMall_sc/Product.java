@@ -1,5 +1,4 @@
-package ShoppingMall;
-
+package ShoppingMall_sc;
 import java.text.DecimalFormat;
 
 public class Product {

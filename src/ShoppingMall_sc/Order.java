@@ -1,9 +1,10 @@
-package ShoppingMall;
+package ShoppingMall_sc;
 
 import java.text.DecimalFormat;
 
-public class Order {
-
+public class Order extends Product {
+    Product product;
+    Customer customer;
     DecimalFormat df = new DecimalFormat("###,###");
     private int oNum;
     private String oPName;
@@ -23,6 +24,8 @@ public class Order {
         this.oCName = oCName;
         this.oStock = oStock;
     }
+
+
 
     public void orderInfo() {
         System.out.println("주문번호: "+oNum+" 주문상품: "+oPName+" 주문자: "

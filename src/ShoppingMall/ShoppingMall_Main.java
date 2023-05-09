@@ -14,22 +14,22 @@ public class ShoppingMall_Main {
 
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        // 각각의 버퍼에 텍스트파일을 저장
         BufferedReader brp = new BufferedReader(new FileReader("C:\\Users" +
-                "\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Product.txt"));
+                "\\pc\\Desktop\\Study\\Coding\\JavaStudy\\readFile\\ShoppingMall_Product.txt"));
         BufferedReader brc = new BufferedReader(new FileReader("C:\\Users" +
-                "\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Customer.txt"));
+                "\\pc\\Desktop\\Study\\Coding\\JavaStudy\\readFile\\ShoppingMall_Customer.txt"));
         BufferedReader bro = new BufferedReader(new FileReader("C:\\Users" +
-                "\\riosp\\Desktop\\JavaLearnPJT\\readFile\\ShoppingMall_Order.txt"));
-
+                "\\pc\\Desktop\\Study\\Coding\\JavaStudy\\readFile\\ShoppingMall_Order.txt"));
+        // While 문으로 파일 끝까지 읽어준다.
         while((str = brp.readLine()) != null){
             String[] strings = str.split(" ");
             product = new Product();
             product.setpName(strings[0]);
             product.setpPrice(Integer.parseInt(String.valueOf(strings[1])));
             product.setpStock(Integer.parseInt(String.valueOf(strings[2])));
-            pro_List.add(product);
+            pro_List.add(product); // 리스트에 객체를 저장한다.
         }
-
         while ((str = brc.readLine()) != null){
             String[] strings = str.split(" ");
             customer = new Customer(strings[0], strings[1], strings[2],
@@ -45,7 +45,12 @@ public class ShoppingMall_Main {
         }
         brp.close(); brc.close(); bro.close();
 
+        //상품, 고객, 주문정보 확인
+        /*
         checkCustomer();
+        checkProduct();
+        checkOrder();
+        */
 
         ShoppingCart cart = new ShoppingCart();
         for (Order a : ord_List) {
@@ -55,20 +60,27 @@ public class ShoppingMall_Main {
                 }
             }
         }
+
+
+
+
         checkProduct();
     }
+    //상품객체 전체의 productInfo 메서드를 실행하는 메서드
     public static void checkProduct(){
         for (Product o : pro_List) {
             product = o;
             product.productInfo();
         }
     }
+    // 손님객체 전체의 customerInfo 메서드를 실행하는 메서드
     public static void checkCustomer(){
         for (Customer o : cus_List){
             customer = o;
             customer.customerInfo();
         }
     }
+    // 주문객체 전체의 orderInfo 메서드를 실행하는 메서드
     public static void checkOrder(){
         for (Order o : ord_List){
             order = o;

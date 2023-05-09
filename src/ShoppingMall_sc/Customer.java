@@ -1,4 +1,4 @@
-package ShoppingMall;
+package ShoppingMall_sc;
 
 public class Customer {
     private String cName;
