@@ -1,31 +1,46 @@
 package ShoppingMall_sc;
-
+import java.util.*;
 public class Customer {
-    private String cName;
-    private String cAddress;
-    private String cPNumber;
-    private String cEMail;
-    private int cBalance;
-    public String getCName() { return cName; }
-    public void setCName(String cName) { this.cName = cName; }
-    public String getCAddress() { return cAddress; }
-    public void setCAddress(String cAddress) { this.cAddress = cAddress; }
-    public String getCPNumber() { return cPNumber; }
-    public void setCPNumber(String cPNumber) { this.cPNumber = cPNumber; }
-    public String getCEMail() { return cEMail; }
-    public void setCEMail(String cEMail) { this.cEMail = cEMail; }
-    public int getCBalance() { return cBalance; }
-    public void setCBalance(int cBalance) {this.cBalance = cBalance; }
-    Customer(String cName, String cAddress, String cPNumber, String cEMail, int cBalance){
-        this.cName = cName;
-        this.cAddress = cAddress;
-        this.cPNumber = cPNumber;
-        this.cEMail = cEMail;
-        this.cBalance = cBalance;
+    private String name;
+    private String address;
+    private String phone;
+    private String eMail;
+    private int Balance;
+
+    public Customer(String name, String address, String phone, String eMail, int Balance) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.eMail = eMail;
+        this.Balance = Balance;
     }
 
+    public String getName() {
+        return name;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public String getEMail() {
+        return eMail;
+    }
+    public int getBalance() {
+        return Balance;
+    }
+    public List<Order> getOrders() {
+        // 주문 목록은 데이터베이스에서 가져옵니다.
+    }
+    public void addOrder(Order order) {
+        // 주문은 데이터베이스에 저장됩니다.
+    }
+    public void removeOrder(Order order) {
+        // 주문은 데이터베이스에서 삭제됩니다.
+    }
     public void customerInfo() {
-        System.out.println("고객명: "+cName+" 고객주소: "+cAddress+" 전화번호: "+cPNumber+
-                " 이메일: "+cEMail+" 보유금액: "+cBalance);
+        System.out.println("고객명: "+name+" 고객주소: "+address+" 전화번호: "+phone+
+                " 이메일: "+eMail+" 보유금액: "+Balance);
     }
 }
