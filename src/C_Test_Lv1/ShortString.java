@@ -19,7 +19,7 @@ public class ShortString {
         for(int i=0 ; i<str1.length-size+1 ; i++){
             StringBuilder stb;
             for(int j=0 ; j<size ; j++){
-                stb = new StringBuilder()
+                stb = new StringBuilder();
             }
         }
 
