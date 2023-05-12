@@ -1,31 +1,59 @@
 package ShoppingMall_sc;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
-public class Order extends Product {
-    Product product;
-    Customer customer;
-    DecimalFormat df = new DecimalFormat("###,###");
-    private int oNum;
-    private String oPName;
-    private String oCName;
-    private int oStock;
-    public int getONum() { return oNum; }
-    public void setONum(int oNum) { this.oNum = oNum; }
-    public String getOPName() { return oPName; }
-    public void setOPName(String oPName) { this.oPName = oPName; }
-    public String getOCName() { return oCName; }
-    public void setOCName(String oCName) { this.oCName = oCName; }
-    public int getOStock() { return oStock; }
-    public void setOStock(int oStock) { this.oStock = oStock; }
-    Order(int oNum, String oPName, String oCName, int oStock){
-        this.oNum = oNum;
-        this.oPName = oPName;
-        this.oCName = oCName;
-        this.oStock = oStock;
+public class Order extends Customer {
+    private List<Product> products;
+
+    public Order(String name, String address, String phone, String eMail, int Balance) {
+        super(name, address, phone, eMail, Balance);
     }
 
+    @Override
+    public String getName() {
+        return super.getName();
+    }
 
+    @Override
+    public String getAddress() {
+        return super.getAddress();
+    }
+
+    @Override
+    public String getPhone() {
+        return super.getPhone();
+    }
+
+    @Override
+    public String getEMail() {
+        return super.getEMail();
+    }
+
+    @Override
+    public int getBalance() {
+        return super.getBalance();
+    }
+
+    @Override
+    public List<Order> getOrders() {
+        return super.getOrders();
+    }
+
+    @Override
+    public void addOrder(Order order) {
+        super.addOrder(order);
+    }
+
+    @Override
+    public void removeOrder(Order order) {
+        super.removeOrder(order);
+    }
+
+    @Override
+    public void customerInfo() {
+        super.customerInfo();
+    }
 
     public void orderInfo() {
         System.out.println("주문번호: "+oNum+" 주문상품: "+oPName+" 주문자: "
