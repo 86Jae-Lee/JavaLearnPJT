@@ -30,9 +30,6 @@ public class Customer {
     public int getBalance() {
         return Balance;
     }
-    public List<Order> getOrders() {
-        // 주문 목록은 데이터베이스에서 가져옵니다.
-    }
     public void addOrder(Order order) {
         // 주문은 데이터베이스에 저장됩니다.
     }
