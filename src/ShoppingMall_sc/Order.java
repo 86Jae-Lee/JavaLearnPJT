@@ -35,10 +35,6 @@ public class Order extends Customer {
         return super.getBalance();
     }
 
-    @Override
-    public List<Order> getOrders() {
-        return super.getOrders();
-    }
 
     @Override
     public void addOrder(Order order) {
@@ -55,8 +51,4 @@ public class Order extends Customer {
         super.customerInfo();
     }
 
-    public void orderInfo() {
-        System.out.println("주문번호: "+oNum+" 주문상품: "+oPName+" 주문자: "
-                +oCName+" 주문수량: "+df.format(oStock));
-    }
 }
