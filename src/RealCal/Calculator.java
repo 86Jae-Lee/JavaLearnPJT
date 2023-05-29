@@ -11,6 +11,7 @@ public class Calculator extends JFrame {
     private JTextField inputSpace;
     //계산식의 숫자를 담을 변수 num
     private String num = "";
+
     //방금 누른 버튼을 기억하는 변수 prev_operation
     private String prev_operation = "";
     //계산 기능을 구현하기 위해 ArrayList에 숫자와 연산 기호를 하나씩 구분해 담음
@@ -106,7 +107,7 @@ public class Calculator extends JFrame {
                 if (inputSpace.getText().equals("") && operation.equals("-")) {
                     inputSpace.setText(inputSpace.getText() + e.getActionCommand());
 
-                    //이전에 누른 버튼이 연산자가 아니고 && 위의 계산식이 비버있지 않을 때의 조건문
+                    //이전에 누른 버튼이 연산자가 아니고 && 위의 계산식이 비어있지 않을 때의 조건문
                 } else if (!inputSpace.getText().equals("") && !prev_operation.equals("+") && !prev_operation.equals("-") && !prev_operation.equals("×") && !prev_operation.equals("÷")) {
                     inputSpace.setText(inputSpace.getText() + e.getActionCommand());
                 }
@@ -159,18 +160,53 @@ public class Calculator extends JFrame {
         //연산 기호에 대한 처리를 위한 변수
         String mode = "";
 
+        //연산자 우선순위 적용
+        for (int i = 0; i < equation.size(); i++) {
+            String s = equation.get(i);
+
+            //연산자가 있을 때마다 mode의 값을 변경
+            if (s.equals("+")) {
+                mode = "add";
+            } else if (s.equals("-")) {
+                mode = "sub";
+            } else if (s.equals("×")) {
+                mode = "mul";
+            } else if (s.equals("÷")) {
+                mode = "div";
+            } else {
+                //전에 있던 연산자가 곱셈 혹은 나눗셈이고 현재 인덱스의 값이 숫자일 때 연산 진행
+                if ((mode.equals("mul") || mode.equals("div")) && !s.equals("+") && !s.equals("-") && !s.equals("×") && !s.equals("÷")) {
+                    Double one = Double.parseDouble(equation.get(i - 2));
+                    Double two = Double.parseDouble(equation.get(i));
+                    Double result = 0.0;
+
+                    //mode에 따라서 계산
+                    if (mode.equals("mul")) {
+                        result = one * two;
+                    } else if (mode.equals("div")) {
+                        result = one / two;
+                    }
+                    //result값을 ArrayList에 추가
+                    equation.add(i + 1, Double.toString(result));
+
+                    for (int j = 0; j < 3; j++) {
+                        equation.remove(i - 2);
+                    }
+
+                    //예를 들어 3 + 5 x 6에서  3 + 30이 되었으므로 인덱스를 2만큼 되돌아감
+                    i -= 2;	// 결과값이 생긴 인덱스로 이동
+                }
+            }
+        }	// 곱셈 나눗셈을 먼저 계산한다
+
         //+일경우 add, -일경우 sub
         for (String s : equation) {
             if (s.equals("+")) {
                 mode = "add";
-            } else if (s.equals("×")) {
+            } else if (s.equals("-")) {
                 mode = "sub";
-            }
-            else if (s.equals("×")) {
-                mode = "mul";
-            }
-            else if (s.equals("÷")) {
-                mode = "div";
+
+                //곱셈, 나눗셈 연산 삭제됨
             }  else {
                 //숫자일 경우 문자열을 Double로 형변환
                 current = Double.parseDouble(s);
@@ -180,12 +216,6 @@ public class Calculator extends JFrame {
                     prev += current;
                 } else if (mode.equals("sub")) {
                     prev -= current;
-                }
-                else if (mode.equals("mul")) {
-                    prev *= current;
-                }
-                else if (mode.equals("div")) {
-                    prev /= current;
                 } else {
                     prev = current;
                 }
