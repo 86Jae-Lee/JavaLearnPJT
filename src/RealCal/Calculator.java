@@ -35,6 +35,7 @@ public class Calculator extends JFrame {
         inputSpace.setBounds(8, 10, 270, 70);
 
 
+
         //버튼을 만들 패널
         JPanel buttonPanel = new JPanel();
         //레이아웃 지정 - 격자형태로 배치해주는 GridLayout사용
