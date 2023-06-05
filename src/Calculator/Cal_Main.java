@@ -14,6 +14,7 @@ public class Cal_Main {
         bw.flush();
         while(true){
 
+
             num1 = Integer.parseInt(br.readLine());
 
         }
