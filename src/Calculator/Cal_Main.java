@@ -5,6 +5,7 @@ import java.io.*;
 
 public class Cal_Main {
 
+
     static int num1;
     static int num2;
 
