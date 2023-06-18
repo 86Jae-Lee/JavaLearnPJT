@@ -16,8 +16,6 @@ public class Cal_Main {
         bw.write("계산기를 시작합니다. ");
         bw.flush();
         while(true){
-
-
             num1 = Integer.parseInt(br.readLine());
 
         }
