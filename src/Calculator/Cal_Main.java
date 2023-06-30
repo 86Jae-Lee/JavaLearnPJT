@@ -18,9 +18,7 @@ public class Cal_Main {
         while(true){
             num1 = Integer.parseInt(br.readLine());
 
-
         }
-
 
     }
     static int plus(int a, int b){
