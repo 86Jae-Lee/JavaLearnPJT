@@ -65,7 +65,7 @@ class VendingMachine {
     //자판기에서 선택한 상품들의 가격들의 합을 가져온다.
     public int getTotalPrice() {
         int total = 0;
-        for(int i=0 ; i<=this.products.size() ; i++){
+        for(int i=0 ; i<this.products.size() ; i++){
             total += this.products.get(i).getPrice();
         }
         return total;
@@ -90,13 +90,21 @@ public class EnumStudy_vending {
 
         //생수 상품
         Product water = new Product("생수", 1500, 0, 500, ProductType.Water);
+        //과자 상품
+        Product snack = new Product("과자", 1500, 0, 75, ProductType.Food);
 
-        //자판기에 생수상품 추가
+
+        //자판기에 생수, 과자 상품 추가
         vendingMachine.addProducts(water);
+        vendingMachine.addProducts(snack);
 
-        vendingMachine.setPaymentPrice(2000);
+        //자판기에 금액 투입
+        vendingMachine.setPaymentPrice(10000);
 
-
+        vendingMachine.getTotalPrice();
+        //자판기에서 돌려줄 금액을 설정한다.
+        System.out.println(vendingMachine.getReceiveMoney());
     }
+
 }
 
