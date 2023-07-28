@@ -1,6 +1,8 @@
 package Java_Study_19_30;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import javax.swing.*;
@@ -126,12 +128,12 @@ class Ball {
     }
 }
 
-public class PongGame extends JPanel implements MouseMotionListener {
+class PongGame_Logic extends JPanel implements MouseMotionListener {
 
     private int userScore, pcScore;
     private int userMouseY;
 
-    private Ball gameGall = new Ball(300, 200, 3, 3, 3, Color.YELLOW, 10);
+    private Ball gameBall = new Ball(300, 200, 3, 3, 3, Color.YELLOW, 10);
 
     private Paddle userPaddle = new Paddle(10, 200, 75, 3, Color.BLUE);
 
@@ -140,14 +142,61 @@ public class PongGame extends JPanel implements MouseMotionListener {
     static final int WINDOW_WIDTH = 630;
     static final int WINDOW_HEIGHT = 480;
 
-    public PongGame() {
+    public PongGame_Logic() {
         userPaddle = new Paddle(10, 200, 75, 3, Color.BLUE);
         pcPaddle = new Paddle(610, 200, 75, 3, Color.RED);
 
         userMouseY = 0;
         userScore = 0;
         pcScore = 0;
+
+        addMouseMotionListener(this);
     }
+
+    public void paintComponent(Graphics g) {
+        //컴포넌트의 내용을 검은색으로 설정한다.
+        g.setColor(Color.BLACK);
+
+        //컴포넌트를 전체화면에 채운다.
+        g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_WIDTH);
+
+        gameBall.paint(g);
+
+        pcPaddle.paint(g);
+        userPaddle.paint(g);
+
+        g.setColor(Color.WHITE);
+        g.drawString("점수 - 유저[" + userScore + "] 컴퓨터 [" + pcScore + "]", 250, 20);
+    }
+
+    public void reset() {
+        gameBall.setX(300);
+        gameBall.setY(200);
+        gameBall.setCX(3);
+        gameBall.setCY(3);
+        gameBall.setSpeed(3);
+    }
+
+    public void gameLogic() {
+        gameBall.moveBall();
+
+        gameBall.bounceOffEdges(0, WINDOW_HEIGHT);
+
+        if (gameBall.getX() < 0) {
+            pcScore ++;
+        } else if (gameBall.getY() > WINDOW_WIDTH) {
+            userScore ++;
+        }
+
+        if (pcPaddle.checkCollision(gameBall) || userPaddle.checkCollision(gameBall)) {
+            gameBall.reverseX();
+        }
+
+        userPaddle.moveTowards(userMouseY);
+
+        pcPaddle.moveTowards(gameBall.getY());
+    }
+
     @Override
     public void mouseDragged(MouseEvent e) {
 
@@ -155,6 +204,31 @@ public class PongGame extends JPanel implements MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        userMouseY = e.getY();
+    }
+}
 
+public class PongGame {
+
+    static  JFrame f = new JFrame("Pong");
+
+    public static void main(String[] args) {
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        f.setSize(640, 495);
+        PongGame_Logic game = new PongGame_Logic();
+
+        f.add(game);
+
+        f.setVisible(true);
+
+        Timer timer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.gameLogic();
+                game.repaint();
+            }
+        });
+
+        timer.start();
     }
 }
