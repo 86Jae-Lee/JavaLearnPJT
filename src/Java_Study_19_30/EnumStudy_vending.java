@@ -94,6 +94,7 @@ public class EnumStudy_vending {
         Product snack = new Product("과자", 1500, 0, 75, ProductType.Food);
 
 
+
         //자판기에 생수, 과자 상품 추가
         vendingMachine.addProducts(water);
         vendingMachine.addProducts(snack);
