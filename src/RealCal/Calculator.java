@@ -212,6 +212,7 @@ public class Calculator extends JFrame {
                 //숫자일 경우 문자열을 Double로 형변환
                 current = Double.parseDouble(s);
 
+
                 //mode값에 따라 처리, prev는 계속 계산값이 갱신됨
                 if (mode.equals("add")) {
                     prev += current;
