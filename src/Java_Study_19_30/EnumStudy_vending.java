@@ -95,6 +95,7 @@ public class EnumStudy_vending {
 
         
 
+
         //자판기에 생수, 과자 상품 추가
         vendingMachine.addProducts(water);
         vendingMachine.addProducts(snack);
