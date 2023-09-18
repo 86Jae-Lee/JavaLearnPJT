@@ -27,17 +27,17 @@ public class Theater {
     }
 
     // 예약 가능한 좌석 목록 반환
-    public List<Seat> getAvailableSeat() {
-        List<Seat> availableSeat = new ArrayList<>();
+    public List<Seat> getAvailableSeats() {
+        List<Seat> availableSeats = new ArrayList<>();
         for (int row = 0 ; row < numRow ; row++) {
             for (int seatNum = 0; seatNum < numSeatRow ; seatNum++){
                 Seat seat = seats[row][seatNum];
                 if(!seat.isReserved()) {
-                    availableSeat.add(seat);
+                    availableSeats.add(seat);
                 }
             }
         }
-        return availableSeat;
+        return availableSeats;
     }
 
     // 좌석 예약

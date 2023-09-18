@@ -39,4 +39,9 @@ public class Booking {
     public List<Reservation> getReservations() {
         return reservations;
     }
+
+    public Theater getTheater() {
+        return theater;
+    }
+
 }
