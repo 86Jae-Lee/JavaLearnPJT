@@ -1,4 +1,4 @@
-package Teater_Program;
+package Theater_Program;
 
 public class Seat {
     private int row;

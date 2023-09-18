@@ -1,4 +1,4 @@
-package Teater_Program;
+package Theater_Program;
 
 import java.util.*;
 

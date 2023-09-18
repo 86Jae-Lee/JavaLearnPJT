@@ -1,6 +1,4 @@
-package Teater_Program;
-
-import java.sql.Date;
+package Theater_Program;
 
 public class Reservation {
 
