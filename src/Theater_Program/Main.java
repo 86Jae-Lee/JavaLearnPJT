@@ -68,6 +68,7 @@ public class Main {
         System.out.print("사용자 전화번호 : ");
         String phoneNum = scanner.next();
 
+
         Customer customer = new Customer(customerName, phoneNum);
 
         System.out.print("좌석 선택 : ");
@@ -88,6 +89,7 @@ public class Main {
         System.out.println("\n예약 목록 : ");
         for (Reservation reservation : reservations) {
             System.out.println(reservation.toString());
+            
         }
     }
 
