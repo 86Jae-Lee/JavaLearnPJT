@@ -48,6 +48,7 @@ public class Main {
                     break;
             }
 
+
         } while (num != 4);
 
     }
